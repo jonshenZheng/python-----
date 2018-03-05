@@ -9,6 +9,9 @@ import time
 import math
 
 
+imgUrl = ['000.jpg','001.jpg','002.jpg','003.jpg','004.jpg']
+
+
 #获取url的文件名
 def getfileName(url):
     return os.path.basename(url)
@@ -19,20 +22,25 @@ def getfileName(url):
 #保存路径
 
 
-def downloadImg(imgList,path,savePath):
+def downloadImg(imgList=[],pathUrl='',dirPath=''):
 
     i = 0
-    imglen = len(list)
-    pathUrl = np.where(path,path,'')
-    dirPath = np.where(savePath,savePath,'images/')
+    imglen = len(imgList)
 
     for x in range(imglen):
 
-        tname = imgList[x].name
+        tname = imgList[x]
 
-        ranName = 'img'+ str(random.random()*100)+str( math.floor(time.time)) 
+        rTime = int(time.time)
 
-        imgNmame = np.where(tname, tname, ranName)
+        rNumber = random.random()*100
+
+        ranName = 'img'+ str(rNumber0)+str(rTime)
+
+        if(tname):
+            imgNmame = tname
+        else:
+            imgNmame = ranName
 
         fullPath = pathUrl + imgNmame
 
@@ -41,7 +49,10 @@ def downloadImg(imgList,path,savePath):
 
         saveimgName = getfileName(fullPath)
 
-        saveName = dirPath + 
+        saveName = dirPath + saveimgName
  
-        with open('123.jpg','wb') as f:
+        with open(saveName,'wb') as f:
             f.write(cat_img)
+
+
+downloadImg(imgUrl,'http://localhost/testimg/','images')
